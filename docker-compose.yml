@@ -19,7 +19,8 @@ services:
       start_period: 60s
 
   flask-app:
-    image: ujjwalk19/two-tier-flask-app:latest 
+    build:
+      context: . 
     container_name: flask-app
     ports:
       - "5000:5000"
