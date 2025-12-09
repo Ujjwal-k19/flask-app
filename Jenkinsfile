@@ -37,21 +37,22 @@ pipeline {
             }
         }
     }
-Post{
-    success{
-        emailtest(
-            subject: "Build successful!",
-            body: "build was successfull.",
-            to: 'ujjwalk19@hotmail.com'
-        )
-    }
+post{
+    success {
+            emailext (
+                to: 'ujjwalk19@hotmail.com',
+                subject: "SUCCESS: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
+                body: "Build ${env.BUILD_NUMBER} of ${env.JOB_NAME} succeeded.\n\nView details: ${env.BUILD_URL}"
+            )
+        }
 
-    failure{
-        emailtest(
-            subject: "Build Failed!",
-            body: "build was Failure.",
-            to: 'ujjwalk19@hotmail.com'
-        )
-    }
+    failure {
+            emailext (
+                to: 'ujjwalk19@hotmail.com',
+                subject: "FAILURE: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
+                body: "Build ${env.BUILD_NUMBER} of ${env.JOB_NAME} failed.\n\nView details: ${env.BUILD_URL}",
+                attachments: 'true' // Example: include build log as attachment
+            )
+        }
 }
 }
