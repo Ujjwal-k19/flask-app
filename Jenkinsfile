@@ -37,4 +37,21 @@ pipeline {
             }
         }
     }
+Post{
+    success{
+        emailtest(
+            subject: "Build successful!",
+            body: "build was successfull.",
+            to: 'ujjwalk19@hotmail.com'
+        )
+    }
+
+    failure{
+        emailtest(
+            subject: "Build Failed!",
+            body: "build was Failure.",
+            to: 'ujjwalk19@hotmail.com'
+        )
+    }
+}
 }
