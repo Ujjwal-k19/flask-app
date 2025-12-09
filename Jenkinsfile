@@ -38,6 +38,7 @@ pipeline {
         }
     }
 post{
+
     success {
             emailext (
                 to: 'ujjwalk19@hotmail.com',
@@ -45,7 +46,6 @@ post{
                 body: "Build ${env.BUILD_NUMBER} of ${env.JOB_NAME} succeeded.\n\nView details: ${env.BUILD_URL}"
             )
         }
-
     failure {
             emailext (
                 to: 'ujjwalk19@hotmail.com',
