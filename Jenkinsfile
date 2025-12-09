@@ -37,7 +37,7 @@ pipeline {
             }
         }
     }
-Post{
+post{
     success{
         emailtest(
             subject: "Build successful!",
