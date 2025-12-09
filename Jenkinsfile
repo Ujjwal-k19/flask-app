@@ -51,7 +51,7 @@ post{
                 to: 'ujjwalk19@hotmail.com',
                 subject: "FAILURE: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
                 body: "Build ${env.BUILD_NUMBER} of ${env.JOB_NAME} failed.\n\nView details: ${env.BUILD_URL}",
-                attachments: 'true' // Example: include build log as attachment
+                
             )
         }
 }
